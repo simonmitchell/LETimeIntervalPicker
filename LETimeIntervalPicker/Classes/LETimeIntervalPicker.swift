@@ -160,12 +160,9 @@ import UIKit
         var total: TimeInterval = 0
         for (index, component) in components.enumerated() {
             var selected = pickerView.selectedRow(inComponent: index)
-            print(selected)
             if loops {
                 selected = selected % numberOfRows[component]!
             }
-            print(selected)
-            print()
             total += Constants.componentValues[component]! * TimeInterval(selected)
         }
         return total
