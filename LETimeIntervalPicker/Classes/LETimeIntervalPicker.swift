@@ -408,7 +408,7 @@ extension LETimeIntervalPicker: UIPickerViewDelegate {
 
 extension UIView {
     func fillSuperview() {
-        let attributes: [NSLayoutAttribute] = [.top, .bottom, .leading, .trailing]
+        let attributes: [NSLayoutConstraint.Attribute] = [.top, .bottom, .leading, .trailing]
         for attribute in attributes {
             let constraint = NSLayoutConstraint(
                 item: self,
