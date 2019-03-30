@@ -186,7 +186,7 @@ import UIKit
                     "but specified maximum is \(numberOfRows[component]!))"
                 )
             }
-            let index = components.index(of: component)!
+            let index = components.firstIndex(of: component)!
             if loops {
                 let selectedRow = pickerView.selectedRow(inComponent: index)
                 let selectedValue = selectedRow % numberOfRows[component]!
