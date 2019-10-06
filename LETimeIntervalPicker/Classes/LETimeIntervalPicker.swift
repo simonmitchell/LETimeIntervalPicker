@@ -149,7 +149,7 @@ import UIKit
     public func reloadData() {
         calculateNumberWidths()
         pickerView.reloadAllComponents()
-        updateTextLabels()
+        updateTextLabels(setup: true)
         setNeedsLayout()
         layoutIfNeeded()
     }
@@ -290,7 +290,7 @@ import UIKit
         return NSLocalizedString(key, tableName: tableName, bundle: bundle, comment: "")
     }
     
-    fileprivate func updateTextLabels() {
+    fileprivate func updateTextLabels(setup: Bool = false) {
         labels.forEach { $0.removeFromSuperview() }
         for (index, component) in components.enumerated() {
             
@@ -309,7 +309,7 @@ import UIKit
                 // Interface builder will crash otherwise
                 let count = 0
             #else
-                let count = pickerView.selectedRow(inComponent: index)
+                let count = setup ? pickerView.selectedRow(inComponent: index) : 0
             #endif
             label.text = title(for: component, count: count)
             label.font = textFont
